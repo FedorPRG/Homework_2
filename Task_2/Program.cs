@@ -1,23 +1,16 @@
 ﻿Console.Write("Введите цифру: ");
 int number = int.Parse(Console.ReadLine());
-
 if (number / 100 == 0)
 {
     Console.WriteLine("Третьей цифры нет");
-    return;
 }
-int index = 1;
-int discharge = 10;
-while (index < 1000000)
+else
 {
-    if (number / discharge == 0)
+    int index = 10;
+    while (index < number)
     {
-        break;
+        index = index * 10;
     }
-    discharge = discharge * 10; index = index + 1;
+    int x = (number / (index / 1000)) % 10;//ищем третье число
+    Console.WriteLine($"Третье число цифры {number} -> {(x)}");
 }
-
-int x = (number / ((int)Math.Pow(10, (index - 3)))) % 10;
-
-Console.WriteLine($"Третье число цифры {number} -> {(x)}");
-
